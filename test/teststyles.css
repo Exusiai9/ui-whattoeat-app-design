@@ -1,0 +1,403 @@
+/* Blurrr-style home screen tuned to the design spec */
+:root {
+  --bg-top: #DFFFD5;
+  --bg-bottom: #F8FFF5;
+  --card-bg: #FFFFFF;
+  --primary: #B9FF46;
+  --primary-dark: #86E322;
+  --accent-orange: #FFB55B;
+  --accent-purple: #B37DFF;
+  --text-main: #111111;
+  --text-secondary: #777E8C;
+  --border: #E5E7EB;
+  --shadow-1: 0 18px 40px rgba(0, 0, 0, 0.08);
+  --shadow-2: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e8efe4;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  color: var(--text-main);
+}
+
+.phone {
+  position: relative;
+  width: 393px;
+  height: 852px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  padding: 59px 0 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(180px 180px at 20% 15%, rgba(179, 125, 255, 0.16), transparent),
+              radial-gradient(220px 220px at 85% 30%, rgba(185, 255, 70, 0.18), transparent);
+  pointer-events: none;
+}
+
+.app-header {
+  margin: 0 16px 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-1);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent-orange), var(--primary));
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0 10px 20px rgba(255, 181, 91, 0.35);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.brand-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.icon-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(185, 255, 70, 0.18);
+  color: #2f3b21;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.status-text {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.app-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.app-main::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.hero-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 20px 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 35%, var(--accent-purple) 100%);
+  color: #ffffff;
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(-10deg);
+}
+
+.card-chip {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.hero-desc {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.primary-btn,
+.ghost-btn {
+  flex: 1;
+  height: 52px;
+  border-radius: 26px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(134, 227, 34, 0.35);
+}
+
+.primary-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px rgba(134, 227, 34, 0.35);
+}
+
+.ghost-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.ghost-btn:active {
+  transform: translateY(1px);
+}
+
+.module {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 20px 16px;
+  box-shadow: var(--shadow-1);
+}
+
+.module-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.module-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.module-subtitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  color: var(--text-secondary);
+}
+
+.primary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-card {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 28px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.action-card.primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow: var(--shadow-2);
+}
+
+.primary-actions .action-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--accent-purple), #9ce17b);
+}
+
+.primary-actions .action-card:nth-child(3) {
+  background: linear-gradient(135deg, #6ed4ff, var(--primary));
+}
+
+.action-label {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.action-hint {
+  font-size: 12px;
+  line-height: 17px;
+  opacity: 0.92;
+}
+
+.action-card:active {
+  transform: translateY(1px);
+  filter: brightness(0.98);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.secondary-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.chip-btn {
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.chip-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  background: #f6f9ef;
+}
+
+.app-tabbar {
+  position: relative;
+  z-index: 1;
+  margin: 0 16px;
+  height: 76px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-1);
+}
+
+.tab-btn {
+  height: 52px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #ffffff;
+  border: none;
+  box-shadow: var(--shadow-2);
+}
+
+.tab-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
