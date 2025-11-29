@@ -1,83 +1,380 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>这顿吃什么 · 首页</title>
+  <title>Blurrr Eat · 首页</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="phone">
-    <header class="app-header">
-      <div class="header-top">
-        <div class="brand-block">
-          <div class="brand-mark">食</div>
-          <div class="brand-text">
-            <p class="brand-title">这顿吃什么</p>
-            <p class="brand-subtitle">AI 推荐 · 今日灵感</p>
+<body data-page="home">
+  <div class="page">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="status-bar" aria-hidden="true">
+        <div class="status-time">9:41</div>
+        <div class="status-right">
+          <div class="status-signal">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="status-wifi"></div>
+          <div class="status-battery">
+            <div class="status-battery-fill"></div>
           </div>
         </div>
-        <div class="header-actions">
-          <button class="icon-btn" aria-label="搜索">🔍</button>
-          <button class="icon-btn" aria-label="通知">🔔</button>
+      </div>
+
+      <div class="phone-inner">
+        <header class="top-app-bar">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">🍜</div>
+            <div class="brand-name page-title">What to eat</div>
+          </div>
+          <div class="context-status">
+            <div class="context-main body-text">今晚 · 上海</div>
+            <div class="context-sub">
+              <span>🌤️</span>
+              <span class="body-secondary">26°C · 湿度 58%</span>
+            </div>
+          </div>
+        </header>
+
+        <main class="phone-content">
+          <section class="greeting-card card">
+            <div class="greeting-main">
+              <div class="greeting-emoji" id="greeting-emoji">🍱</div>
+              <div class="greeting-texts">
+                <div class="greeting-title card-title" id="greeting-title">大家一起吃，别谁都迁就。</div>
+                <div class="greeting-subtitle body-secondary" id="greeting-subtitle">我会挑一份大家都能接受的选择。</div>
+              </div>
+            </div>
+            <div class="greeting-tags">
+              <div class="greeting-tag-line">
+                <span class="greeting-tag-dot"></span> 已读取你的偏好
+              </div>
+              <div class="greeting-tag-line">
+                <span class="greeting-tag-dot"></span> 正在为多人局调优
+              </div>
+            </div>
+          </section>
+
+          <section class="mode-card card">
+            <div class="card-header-row">
+              <div class="card-title">选择模式</div>
+              <div class="body-secondary" id="current-mode-label">当前：多人局</div>
+              <button class="card-mini-btn tag-text" type="button" id="open-preferences-btn">编辑偏好</button>
+            </div>
+
+            <div class="mode-carousel">
+              <article class="mode-card-item" data-mode="healthy">
+                <div>
+                  <div class="mode-title">要健康</div>
+                  <div class="mode-sub">清爽轻负担</div>
+                </div>
+                <div class="mode-icon">🥗</div>
+              </article>
+
+              <article class="mode-card-item active" data-mode="together">
+                <div>
+                  <div class="mode-title">多人局</div>
+                  <div class="mode-sub">适合分享</div>
+                </div>
+                <div class="mode-icon">🍲</div>
+              </article>
+
+              <article class="mode-card-item" data-mode="now">
+                <div>
+                  <div class="mode-title">马上吃</div>
+                  <div class="mode-sub">快且省心</div>
+                </div>
+                <div class="mode-icon">⚡</div>
+              </article>
+            </div>
+
+            <div class="mode-dot-row">
+              <button class="mode-dot" type="button" data-mode="healthy" aria-label="要健康模式"></button>
+              <button class="mode-dot active" type="button" data-mode="together" aria-label="多人局模式"></button>
+              <button class="mode-dot" type="button" data-mode="now" aria-label="马上吃模式"></button>
+            </div>
+          </section>
+
+          <section class="actions-panel card">
+            <div class="actions-header-row">
+              <div class="card-title">这顿怎么决定？</div>
+              <div class="body-secondary" id="mode-label">多人局 · 适合更多人</div>
+            </div>
+            <div class="preferences-preview" id="preferences-preview">
+              中餐 · 日料 · 意面 · 清淡 · 健康 · 不辣 · 中辣 · 花生过敏 · 海鲜过敏 · 人均 ¥200
+            </div>
+
+            <div class="actions-layout">
+              <button class="action-tile primary" type="button" data-action="assist">
+                <div class="action-front">
+                  <div class="action-icon-circle">🤖</div>
+                  <div class="action-title">帮我选</div>
+                </div>
+                <div class="action-back">
+                  <div class="action-title">点击查看推荐详情</div>
+                  <p class="action-desc">深橙高亮，告诉你下一步能做什么。</p>
+                </div>
+              </button>
+
+              <div class="action-column">
+                <button class="action-tile manual" type="button" data-action="manual">
+                  <div class="action-front">
+                    <div class="action-icon-circle">📝</div>
+                    <div class="action-title">自己选</div>
+                  </div>
+                  <div class="action-back">
+                    <div class="action-title">点击自定义筛选</div>
+                    <p class="action-desc">深橙提示你开启自选。</p>
+                  </div>
+                </button>
+
+                <button class="action-tile random" type="button" data-action="random">
+                  <div class="action-front">
+                    <div class="action-icon-circle">🎲</div>
+                    <div class="action-title">随便来</div>
+                  </div>
+                  <div class="action-back">
+                    <div class="action-title">点击打开灵感卡</div>
+                    <p class="action-desc">深橙高亮，带你查看惊喜。</p>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <div class="sheet-overlay" id="action-detail-overlay" aria-hidden="true">
+            <div class="action-detail-sheet" id="action-detail-sheet">
+              <div class="detail-bar"></div>
+              <div class="detail-header">
+                <div class="detail-title" id="detail-title">推荐详情</div>
+                <button class="icon-btn detail-close" type="button" id="close-detail-btn" aria-label="关闭">✕</button>
+              </div>
+              <p class="detail-desc" id="detail-desc">点击上方任意功能，查看对应的次级界面内容。</p>
+              <div class="assist-mock" id="assist-mock" aria-hidden="true">
+                <div class="assist-slider" id="assist-slider">
+                  <div class="assist-track" id="assist-track">
+                    <div class="assist-slide">
+                      <div class="assist-card">
+                        <div class="assist-img" style="background-image: url('https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                        <div class="assist-meta">
+                          <div class="assist-dish">日料 · 味噌三文鱼</div>
+                          <div class="assist-stats">
+                            <div class="assist-stat"><span class="assist-icon">⏱️</span><span class="assist-value">18</span><span class="assist-unit">分钟</span></div>
+                            <div class="assist-stat"><span class="assist-icon">💰</span><span class="assist-value">¥120</span><span class="assist-unit">预计</span></div>
+                            <div class="assist-stat"><span class="assist-icon">📍</span><span class="assist-value">1.3</span><span class="assist-unit">km</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="assist-slide">
+                      <div class="assist-card">
+                        <div class="assist-img" style="background-image: url('https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                        <div class="assist-meta">
+                          <div class="assist-dish">意面 · 番茄海鲜面</div>
+                          <div class="assist-stats">
+                            <div class="assist-stat"><span class="assist-icon">⏱️</span><span class="assist-value">22</span><span class="assist-unit">分钟</span></div>
+                            <div class="assist-stat"><span class="assist-icon">💰</span><span class="assist-value">¥98</span><span class="assist-unit">预计</span></div>
+                            <div class="assist-stat"><span class="assist-icon">📍</span><span class="assist-value">1.8</span><span class="assist-unit">km</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="assist-slide">
+                      <div class="assist-card">
+                        <div class="assist-img" style="background-image: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                        <div class="assist-meta">
+                          <div class="assist-dish">烧烤 · 牛舌拼盘</div>
+                          <div class="assist-stats">
+                            <div class="assist-stat"><span class="assist-icon">⏱️</span><span class="assist-value">25</span><span class="assist-unit">分钟</span></div>
+                            <div class="assist-stat"><span class="assist-icon">💰</span><span class="assist-value">¥168</span><span class="assist-unit">预计</span></div>
+                            <div class="assist-stat"><span class="assist-icon">📍</span><span class="assist-value">2.4</span><span class="assist-unit">km</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="assist-slide">
+                      <div class="assist-card">
+                        <div class="assist-img" style="background-image: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                        <div class="assist-meta">
+                          <div class="assist-dish">中餐 · 香菇滑鸡煲</div>
+                          <div class="assist-stats">
+                            <div class="assist-stat"><span class="assist-icon">⏱️</span><span class="assist-value">20</span><span class="assist-unit">分钟</span></div>
+                            <div class="assist-stat"><span class="assist-icon">💰</span><span class="assist-value">¥88</span><span class="assist-unit">预计</span></div>
+                            <div class="assist-stat"><span class="assist-icon">📍</span><span class="assist-value">1.1</span><span class="assist-unit">km</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="assist-slide">
+                      <div class="assist-card">
+                        <div class="assist-img" style="background-image: url('https://images.pexels.com/photos/3298637/pexels-photo-3298637.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                        <div class="assist-meta">
+                          <div class="assist-dish">健康 · 彩虹沙拉碗</div>
+                          <div class="assist-stats">
+                            <div class="assist-stat"><span class="assist-icon">⏱️</span><span class="assist-value">12</span><span class="assist-unit">分钟</span></div>
+                            <div class="assist-stat"><span class="assist-icon">💰</span><span class="assist-value">¥76</span><span class="assist-unit">预计</span></div>
+                            <div class="assist-stat"><span class="assist-icon">📍</span><span class="assist-value">0.9</span><span class="assist-unit">km</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="assist-reco-card">
+                  <div class="assist-reco-title">AI 推荐</div>
+                  <p class="assist-reco-desc">为多人局挑选了与你偏好匹配的 3 家餐厅，向左右滑动查看。</p>
+                </div>
+                <div class="assist-pagination" id="assist-dots">
+                  <button type="button" data-assist-dot="0" class="active"></button>
+                  <button type="button" data-assist-dot="1"></button>
+                  <button type="button" data-assist-dot="2"></button>
+                  <button type="button" data-assist-dot="3"></button>
+                  <button type="button" data-assist-dot="4"></button>
+                </div>
+                <div class="assist-actions-row">
+                  <button class="assist-pill assist-fav" type="button" aria-label="收藏">
+                    <span class="assist-pill-icon">★</span>
+                    <span>收藏</span>
+                  </button>
+                  <button class="assist-pill assist-refresh" type="button" aria-label="换一批">
+                    <span class="assist-pill-icon">⟳</span>
+                    <span>换一批</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <nav class="bottom-nav" aria-label="底部导航">
+          <div class="glass-nav-group">
+            <input type="radio" name="bottom-nav" id="nav-history" />
+            <label for="nav-history" data-target="history.html">
+              <span class="nav-icon">🕓</span>
+              <span class="nav-label">历史</span>
+            </label>
+
+            <input type="radio" name="bottom-nav" id="nav-home" checked />
+            <label for="nav-home" data-target="index.html">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-label">首页</span>
+            </label>
+
+            <input type="radio" name="bottom-nav" id="nav-profile" />
+            <label for="nav-profile" data-target="profile.html">
+              <span class="nav-icon">👤</span>
+              <span class="nav-label">我的</span>
+            </label>
+
+            <div class="glass-nav-glider"></div>
+          </div>
+        </nav>
+        <div class="home-indicator"></div>
+
+        <div class="modal-overlay" id="preferences-modal" aria-hidden="true">
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="preferences-title">
+            <div class="modal-header">
+              <div>
+                <div class="tag-text modal-eyebrow">偏好</div>
+                <div class="modal-title" id="preferences-title">编辑你的筛选</div>
+              </div>
+              <button class="icon-btn" type="button" id="close-preferences-btn" aria-label="关闭偏好">✕</button>
+            </div>
+
+            <div class="modal-body">
+              <div class="filter-group" data-filter="category">
+                <div class="filter-head">
+                  <div class="group-title">菜系</div>
+                  <div class="group-hint">可多选</div>
+                </div>
+                <div class="chip-row">
+                  <button type="button" class="filter-chip" data-filter-group="category" data-value="中餐">中餐</button>
+                  <button type="button" class="filter-chip" data-filter-group="category" data-value="日料">日料</button>
+                  <button type="button" class="filter-chip" data-filter-group="category" data-value="意面">意面</button>
+                  <button type="button" class="filter-chip" data-filter-group="category" data-value="烧烤">烧烤</button>
+                </div>
+              </div>
+
+              <div class="filter-group" data-filter="style">
+                <div class="filter-head">
+                  <div class="group-title">口味</div>
+                  <div class="group-hint">可多选</div>
+                </div>
+                <div class="chip-row">
+                  <button type="button" class="filter-chip" data-filter-group="style" data-value="清淡">清淡</button>
+                  <button type="button" class="filter-chip" data-filter-group="style" data-value="重口">重口</button>
+                  <button type="button" class="filter-chip" data-filter-group="style" data-value="健康">健康</button>
+                </div>
+              </div>
+
+              <div class="filter-group" data-filter="brand">
+                <div class="filter-head">
+                  <div class="group-title">辣度</div>
+                  <div class="group-hint">可多选</div>
+                </div>
+                <div class="chip-row">
+                  <button type="button" class="filter-chip" data-filter-group="brand" data-value="不辣">不辣</button>
+                  <button type="button" class="filter-chip" data-filter-group="brand" data-value="微辣">微辣</button>
+                  <button type="button" class="filter-chip" data-filter-group="brand" data-value="中辣">中辣</button>
+                  <button type="button" class="filter-chip" data-filter-group="brand" data-value="重辣">重辣</button>
+                </div>
+              </div>
+
+              <div class="filter-group" data-filter="color">
+                <div class="filter-head">
+                  <div class="group-title">忌口</div>
+                  <div class="group-hint">过敏/不吃</div>
+                </div>
+                <div class="chip-row">
+                  <button type="button" class="filter-chip color-chip" data-filter-group="color" data-value="花生过敏">
+                    <span class="color-dot" style="background: #e63b2e;"></span>花生过敏
+                  </button>
+                  <button type="button" class="filter-chip color-chip" data-filter-group="color" data-value="海鲜过敏">
+                    <span class="color-dot" style="background: #b56539;"></span>海鲜过敏
+                  </button>
+                  <button type="button" class="filter-chip color-chip" data-filter-group="color" data-value="乳制品过敏">
+                    <span class="color-dot" style="background: #6b7280;"></span>乳制品过敏
+                  </button>
+                </div>
+              </div>
+
+              <div class="filter-group" data-filter="size">
+                <div class="filter-head">
+                  <div class="group-title">偏好</div>
+                  <div class="group-hint">可多选</div>
+                </div>
+                <div class="chip-row">
+                  <button type="button" class="filter-chip" data-filter-group="size" data-value="素食">素食</button>
+                  <button type="button" class="filter-chip" data-filter-group="size" data-value="低脂">低脂</button>
+                  <button type="button" class="filter-chip" data-filter-group="size" data-value="高蛋白">高蛋白</button>
+                </div>
+              </div>
+
+              <div class="filter-group" data-filter="price">
+                <div class="filter-head">
+                  <div class="group-title">人均预算</div>
+                  <div class="group-hint">拖动预算</div>
+                </div>
+                <div class="price-row">
+                  <div class="price-values">
+                    <span class="price-min">¥30</span>
+                    <span class="price-current" id="price-value">¥200</span>
+                    <span class="price-max">¥200</span>
+                  </div>
+                  <input type="range" min="30" max="200" step="10" id="price-range" />
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="primary-cta" type="button" id="apply-preferences-btn">显示 <span id="results-count">32</span> 个结果</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="header-meta">
-        <span class="pill">上海 · 午餐</span>
-        <span class="status-text">根据你的偏好定制推荐</span>
-      </div>
-    </header>
-
-    <main class="app-main">
-      <section class="hero-card">
-        <div class="card-chip">今日灵感</div>
-        <h1 class="hero-title">这一顿，交给我来安排</h1>
-        <p class="hero-desc">结合你的偏好、时间与健康目标，给你最轻松的选择。</p>
-        <div class="hero-actions">
-          <button class="ghost-btn" type="button">换一批</button>
-          <button class="primary-btn" type="button">查看推荐</button>
-        </div>
-      </section>
-
-      <section class="module">
-        <div class="module-header">
-          <h2 class="module-title">主要功能</h2>
-          <p class="module-subtitle">3 个快捷入口，帮你快速做决定</p>
-        </div>
-        <div class="primary-actions">
-          <button class="action-card primary" type="button">
-            <span class="action-label">这一顿</span>
-            <span class="action-hint">极速推荐当前一餐</span>
-          </button>
-          <button class="action-card primary" type="button">
-            <span class="action-label">一起吃</span>
-            <span class="action-hint">同步好友口味</span>
-          </button>
-          <button class="action-card primary" type="button">
-            <span class="action-label">要健康</span>
-            <span class="action-hint">热量与营养优先</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="module">
-        <div class="module-header">
-          <h2 class="module-title">更多选择</h2>
-          <p class="module-subtitle">轻量模式，随手点</p>
-        </div>
-        <div class="secondary-actions">
-          <button class="chip-btn" type="button">帮我选</button>
-          <button class="chip-btn" type="button">自己选</button>
-          <button class="chip-btn" type="button">随便选</button>
-        </div>
-      </section>
-    </main>
-
-    <nav class="app-tabbar" aria-label="底部导航">
-      <button class="tab-btn" type="button">历史</button>
-      <button class="tab-btn active" type="button">首页</button>
-      <button class="tab-btn" type="button">我的</button>
-    </nav>
+    </div>
   </div>
 
   <script src="main.js"></script>

@@ -33,30 +33,27 @@ All inner content is padded horizontally by `14px` and has vertical gaps of `14p
 
 ## 2. Visual Tokens
 
-### 2.1 Colors
+### 2.1 Colors（提取自参考海报的配色，按“主色-辅助色-中性色-语义色”分层）
 
-- Page background:
-  - Top: `#e4e5ea`
-  - Bottom: `#d7d8de`
-- Cards:
-  - Base card background: `#ffffff`
-- Brand / dark surfaces:
-  - `#050816` or `#020617`
-- Primary accent:
-  - Lime green: `#b9ff46`
-- Secondary accent:
-  - Warm yellow: `#ffd84d`
-- Additional accents:
-  - Healthy green: `#4ade80`, `#22c55e`
-  - Purple: `#a855f7`
-  - Orange: `#fb923c`
-- Text:
-  - Main text: `#111827`
-  - Secondary text: `#6b7280`
-- Bottom nav background:
-  - `#050816`
-- Dots / status indicators:
-  - Use accent colors (`#b9ff46`, `#facc15`, `#fb7185`) with subtle shadows.
+- 主色（Brand Primary）
+  - 活力橙 `#ff6b00`：大面积背景、CTA 按钮、主导装饰。
+  - 深橙 `#e85a00`：主按钮悬停/按压梯度终点。
+  - 品牌墨黑 `#0c0c0c`：Logo 描边、标题、重文字。
+- 辅助色
+  - 叶绿 `#38b24a`：新鲜感、正向标签、食材点缀。
+  - 明黄 `#ffc247`：价格/优惠标签、提示块、活力背景。
+  - 西瓜红 `#e63b2e`：数字/价格强化、次级 CTA、高亮点缀。
+- 中性色
+  - 纯白 `#ffffff`：卡片、内容底色。
+  - 云白 `#f7f7f7`：浅底、分组背景、胶囊容器。
+  - 石墨灰 `#1f1f1f`：正文主色。
+  - 次级灰 `#4a4a4a`：次要文字、图标默认。
+  - 分割线 / 辅助底 `#e5e7eb`。
+- 语义色
+  - 成功：叶绿 `#38b24a`
+  - 警告：明黄 `#ffc247`
+  - 错误：西瓜红 `#e63b2e`
+  - 信息：墨黑 `#0c0c0c`（80% 不透明度，用于强调提示）
 
 ### 2.2 Typography Levels
 
