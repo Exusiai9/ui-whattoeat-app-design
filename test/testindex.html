@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Blurrr Eat - Home (3 Action Cards with Hover)</title>
+  <title>blurrr eat - Home with Glass Nav (393×852)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -59,7 +59,7 @@
       justify-content: center;
     }
 
-    /* ===== Typography scale ===== */
+    /* ===== Typography ===== */
     .page-title {
       font-size: 20px;
       font-weight: 700;
@@ -609,54 +609,104 @@
       line-height: 1.5;
     }
 
-    /* Bottom nav */
+    /* ===== 底部导航：尺寸与截图一致，整体深色大 pill ===== */
     .bottom-nav {
       position: absolute;
       left: var(--space-md);
       right: var(--space-md);
       bottom: 32px;
       padding: 4px 6px;
-      border-radius: 22px;
-      background: rgba(15, 23, 42, 0.96);
+      border-radius: 24px;
+      background: #050816;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: var(--shadow-medium);
-      backdrop-filter: blur(10px);
+      justify-content: center;
+      align-items: stretch;
+      box-shadow: var(--shadow-medium); /* 轻微阴影，无发光 */
+      backdrop-filter: blur(16px);
       z-index: 2;
     }
 
-    .nav-item {
-      flex: 1;
-      border: none;
-      background: transparent;
-      border-radius: 18px;
-      padding: 4px 0;
+    /* 玻璃导航组占满底栏内部 */
+    .glass-nav-group {
+      --bg: transparent;
+      --text: #9ca3af;
+
+      position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      font-size: 10px;
-      color: #9ca3af;
-      cursor: pointer;
+      width: 100%;
+      background: var(--bg);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: none;
     }
 
-    .nav-icon { font-size: 16px; line-height: 1; }
+    .glass-nav-group input {
+      display: none;
+    }
 
-    .nav-label {
-      font-size: 10px;
+    .glass-nav-group label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-width: 0;
+      padding: 6px 0;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      color: var(--text);
+      transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+    }
+
+    .glass-nav-group label:hover {
+      color: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .glass-nav-group .nav-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .glass-nav-group .nav-label {
+      font-size: 11px;
       font-weight: 500;
     }
 
-    .nav-item.active {
-      background: #f9fafb;
+    .glass-nav-group input:checked + label {
       color: #020617;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.4);
-      font-weight: 600;
     }
 
-    .nav-item.active .nav-icon {
-      transform: translateY(-1px);
+    .glass-nav-glider {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      width: calc(100% / 3);
+      border-radius: 16px;
+      z-index: 1;
+      transition:
+        transform 0.45s cubic-bezier(0.37, 1.95, 0.66, 0.56),
+        background 0.25s ease-in-out;
+      box-shadow: none;
+    }
+
+    /* 历史 */
+    #nav-history:checked ~ .glass-nav-glider {
+      transform: translateX(0%);
+      background: #e5e7eb;
+    }
+
+    /* 首页（品牌绿一点点） */
+    #nav-home:checked ~ .glass-nav-glider {
+      transform: translateX(100%);
+      background: linear-gradient(135deg, #f9fafb, #b9ff46);
+    }
+
+    /* 我的（冷蓝） */
+    #nav-profile:checked ~ .glass-nav-glider {
+      transform: translateX(200%);
+      background: #dbeafe;
     }
 
     .home-indicator {
@@ -713,19 +763,19 @@
               <div class="greeting-emoji" id="greeting-emoji">😋</div>
               <div class="greeting-texts">
                 <div class="greeting-title card-title" id="greeting-title">
-                  这一顿，怎么吃最爽？
+                  大家一起吃，别谁都迁就。
                 </div>
                 <div class="greeting-subtitle body-secondary" id="greeting-subtitle">
-                  我帮你在纠结和随意之间，做一个刚刚好。
+                  我会给出一份大家都容易同意的方案。
                 </div>
               </div>
             </div>
             <div class="greeting-tags">
               <div class="greeting-tag-line">
-                <span class="greeting-tag-dot"></span> 已读取你的口味偏好
+                <span class="greeting-tag-dot"></span> 已读取你的用餐偏好
               </div>
               <div class="greeting-tag-line">
-                <span class="greeting-tag-dot"></span> 左滑右滑，找到今天的感觉
+                <span class="greeting-tag-dot"></span> 左右滑动，找到今天的共识
               </div>
             </div>
           </section>
@@ -734,20 +784,20 @@
           <section class="mode-cover-card card">
             <div class="card-header-row">
               <div class="card-title">吃饭模式</div>
-              <div class="body-secondary" id="actions-sub">当前：要健康</div>
-              <button class="card-mini-btn tag-text">调整</button>
+              <div class="body-secondary" id="actions-sub">当前：一起吃</div>
+              <button class="card-mini-btn tag-text">修改目标</button>
             </div>
 
             <div class="mode-carousel">
-              <div class="mode-card-item active" data-mode="healthy">
+              <div class="mode-card-item" data-mode="healthy">
                 <div>
                   <div class="mode-title">要健康</div>
-                  <div class="mode-sub">轻油少盐 · 热量可控</div>
+                  <div class="mode-sub">控制热量 · 清爽一点</div>
                 </div>
                 <div class="mode-icon">🥗</div>
               </div>
 
-              <div class="mode-card-item" data-mode="together">
+              <div class="mode-card-item active" data-mode="together">
                 <div>
                   <div class="mode-title">一起吃</div>
                   <div class="mode-sub">适合多人 · 可以投票</div>
@@ -765,17 +815,17 @@
             </div>
 
             <div class="mode-dot-row">
-              <button class="mode-dot active" data-mode="healthy"></button>
-              <button class="mode-dot" data-mode="together"></button>
+              <button class="mode-dot" data-mode="healthy"></button>
+              <button class="mode-dot active" data-mode="together"></button>
               <button class="mode-dot" data-mode="now"></button>
             </div>
           </section>
 
-          <!-- 功能分区：保持原来「一大两小」，加 hover 动效 -->
+          <!-- 功能分区：一大两小 + hover 动效 -->
           <section class="actions-panel card">
             <div class="actions-header-row">
               <div class="card-title">这顿怎么决定？</div>
-              <div class="body-secondary" id="mode-label">健康模式 · 推荐更清爽</div>
+              <div class="body-secondary" id="mode-label">一起吃 · 适合多人局</div>
             </div>
 
             <div class="actions-layout">
@@ -788,7 +838,7 @@
                 <div class="action-back">
                   <div class="action-title">帮我选</div>
                   <p class="action-desc">
-                    你别想了，我来拍板。根据当前模式自动组合餐厅和菜品。
+                    你别想了，我来拍板。综合所有人的口味和预算给出方案。
                   </p>
                 </div>
               </button>
@@ -803,7 +853,7 @@
                   <div class="action-back">
                     <div class="action-title">自己选</div>
                     <p class="action-desc">
-                      看清全部选项，按口味、预算等条件过滤，再慢慢挑。
+                      看清全部选项，按口味、距离、人均价等条件一起筛。
                     </p>
                   </div>
                 </button>
@@ -816,7 +866,7 @@
                   <div class="action-back">
                     <div class="action-title">随便选</div>
                     <p class="action-desc">
-                      让运气决定今天吃啥，会稍微参考当前模式做安全过滤。
+                      让运气决定今天吃啥，适合大家都「无所谓」的时候。
                     </p>
                   </div>
                 </button>
@@ -825,20 +875,32 @@
           </section>
         </div>
 
-        <!-- 底部导航 + Home 指示条 -->
+        <!-- 底部玻璃态导航 + Home 指示条 -->
         <nav class="bottom-nav">
-          <button class="nav-item">
-            <span class="nav-icon">🕒</span>
-            <span class="nav-label">历史</span>
-          </button>
-          <button class="nav-item active">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-label">首页</span>
-          </button>
-          <button class="nav-item">
-            <span class="nav-icon">👤</span>
-            <span class="nav-label">我的</span>
-          </button>
+          <div class="glass-nav-group">
+            <!-- 历史 -->
+            <input type="radio" name="bottom-nav" id="nav-history" />
+            <label for="nav-history">
+              <span class="nav-icon">🕒</span>
+              <span class="nav-label">历史</span>
+            </label>
+
+            <!-- 首页（默认选中） -->
+            <input type="radio" name="bottom-nav" id="nav-home" />
+            <label for="nav-home">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-label">首页</span>
+            </label>
+
+            <!-- 我的（当前选中，对应截图） -->
+            <input type="radio" name="bottom-nav" id="nav-profile" checked />
+            <label for="nav-profile">
+              <span class="nav-icon">👤</span>
+              <span class="nav-label">我的</span>
+            </label>
+
+            <div class="glass-nav-glider"></div>
+          </div>
         </nav>
         <div class="home-indicator"></div>
       </div>
@@ -902,15 +964,6 @@
 
     document.querySelectorAll(".mode-dot").forEach(dot => {
       dot.addEventListener("click", () => setMode(dot.dataset.mode));
-    });
-
-    document.querySelectorAll(".bottom-nav .nav-item").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document
-          .querySelectorAll(".bottom-nav .nav-item")
-          .forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-      });
     });
   </script>
 </body>
