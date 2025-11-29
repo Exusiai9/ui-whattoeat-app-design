@@ -2,18 +2,16 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>这顿吃什么助手</title>
-  <!-- 告诉浏览器使用设备宽度，并禁止用户随意缩放 -->
+  <title>这顿吃什么 · 首页</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- 这个容器就是你的 iPhone 14 Pro 画布：393 x 852 -->
   <div class="phone">
     <header class="app-header">
       <div class="header-top">
         <div class="brand-block">
-          <div class="brand-mark">吃</div>
+          <div class="brand-mark">食</div>
           <div class="brand-text">
             <p class="brand-title">这顿吃什么</p>
             <p class="brand-subtitle">AI 推荐 · 今日灵感</p>
@@ -31,23 +29,53 @@
     </header>
 
     <main class="app-main">
-      <!-- 推荐卡片占位 -->
-      <section class="recommend-card">
-        <div class="card-content">
-          <p class="card-label">今日推荐</p>
-          <h2 class="card-title">帮你想好第一口</h2>
-          <p class="card-desc">点击查看详情，或稍后提醒我</p>
-          <div class="card-actions">
-            <button class="ghost-btn">稍后</button>
-            <button class="primary-btn">查看推荐</button>
-          </div>
+      <section class="hero-card">
+        <div class="card-chip">今日灵感</div>
+        <h1 class="hero-title">这一顿，交给我来安排</h1>
+        <p class="hero-desc">结合你的偏好、时间与健康目标，给你最轻松的选择。</p>
+        <div class="hero-actions">
+          <button class="ghost-btn" type="button">换一批</button>
+          <button class="primary-btn" type="button">查看推荐</button>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-header">
+          <h2 class="module-title">主要功能</h2>
+          <p class="module-subtitle">3 个快捷入口，帮你快速做决定</p>
+        </div>
+        <div class="primary-actions">
+          <button class="action-card primary" type="button">
+            <span class="action-label">这一顿</span>
+            <span class="action-hint">极速推荐当前一餐</span>
+          </button>
+          <button class="action-card primary" type="button">
+            <span class="action-label">一起吃</span>
+            <span class="action-hint">同步好友口味</span>
+          </button>
+          <button class="action-card primary" type="button">
+            <span class="action-label">要健康</span>
+            <span class="action-hint">热量与营养优先</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-header">
+          <h2 class="module-title">更多选择</h2>
+          <p class="module-subtitle">轻量模式，随手点</p>
+        </div>
+        <div class="secondary-actions">
+          <button class="chip-btn" type="button">帮我选</button>
+          <button class="chip-btn" type="button">自己选</button>
+          <button class="chip-btn" type="button">随便选</button>
         </div>
       </section>
     </main>
 
     <nav class="app-tabbar" aria-label="底部导航">
-      <button class="tab-btn active" type="button">推荐</button>
       <button class="tab-btn" type="button">历史</button>
+      <button class="tab-btn active" type="button">首页</button>
       <button class="tab-btn" type="button">我的</button>
     </nav>
   </div>
