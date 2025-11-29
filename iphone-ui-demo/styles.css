@@ -1,0 +1,44 @@
+/* 全局字体和背景 */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f3f3;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", system-ui, sans-serif;
+  }
+  
+  /* iPhone 14 Pro 画布 */
+  .phone {
+    width: 393px;
+    height: 852px;
+    background: #fff;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 预留结构，后面慢慢填 */
+  .app-header {
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .app-main {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .app-tabbar {
+    height: 56px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
