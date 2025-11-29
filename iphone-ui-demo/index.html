@@ -5,24 +5,53 @@
   <title>这顿吃什么助手</title>
   <!-- 告诉浏览器使用设备宽度，并禁止用户随意缩放 -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- 这个容器就是你的 iPhone 14 Pro 画布：393 x 852 -->
   <div class="phone">
     <header class="app-header">
-      <h1>这顿吃什么</h1>
+      <div class="header-top">
+        <div class="brand-block">
+          <div class="brand-mark">吃</div>
+          <div class="brand-text">
+            <p class="brand-title">这顿吃什么</p>
+            <p class="brand-subtitle">AI 推荐 · 今日灵感</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="搜索">🔍</button>
+          <button class="icon-btn" aria-label="通知">🔔</button>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="pill">上海 · 午餐</span>
+        <span class="status-text">根据你的偏好定制推荐</span>
+      </div>
     </header>
 
     <main class="app-main">
-      <!-- 等会儿放推荐卡片 / 列表 / “帮我选”内容 -->
+      <!-- 推荐卡片占位 -->
+      <section class="recommend-card">
+        <div class="card-content">
+          <p class="card-label">今日推荐</p>
+          <h2 class="card-title">帮你想好第一口</h2>
+          <p class="card-desc">点击查看详情，或稍后提醒我</p>
+          <div class="card-actions">
+            <button class="ghost-btn">稍后</button>
+            <button class="primary-btn">查看推荐</button>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <nav class="app-tabbar">
-      <!-- 底部导航，例如：推荐 / 历史 / 我的 -->
+    <nav class="app-tabbar" aria-label="底部导航">
+      <button class="tab-btn active" type="button">推荐</button>
+      <button class="tab-btn" type="button">历史</button>
+      <button class="tab-btn" type="button">我的</button>
     </nav>
   </div>
 
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
