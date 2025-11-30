@@ -26,10 +26,13 @@
 
       <div class="phone-inner">
         <main class="phone-content">
-          <section class="history-tabs">
-            <button class="history-tab active" data-tab="records">历史记录</button>
-            <button class="history-tab" data-tab="trend">周趋势</button>
-            <button class="history-tab" data-tab="summary">周总结</button>
+          <section class="history-tabs" role="tablist" aria-label="历史导航">
+            <div class="history-tab-group">
+              <button type="button" class="history-tab active" data-tab="records" role="tab" aria-selected="true">历史记录</button>
+              <button type="button" class="history-tab" data-tab="trend" role="tab" aria-selected="false">周趋势</button>
+              <button type="button" class="history-tab" data-tab="summary" role="tab" aria-selected="false">周总结</button>
+              <div class="history-tab-glider" aria-hidden="true"></div>
+            </div>
           </section>
 
           <section class="history-content">
@@ -42,7 +45,7 @@
                     <div class="history-month" id="history-month">FEBRUARY</div>
                     <div class="history-year" id="history-year">2025</div>
                   </div>
-                  <div class="history-weekday" id="history-weekday">Tue</div>
+                  <div class="history-weekday" id="history-weekday">周二</div>
                 </div>
 
                 <div class="history-week-row">
@@ -69,17 +72,17 @@
                         <div class="trend-metric">
                           <div class="trend-metric-title">外卖</div>
                           <div class="trend-metric-value">54%</div>
-                          <div class="trend-metric-sub"> 本周</div>
+                          <div class="trend-metric-sub">本周</div>
                         </div>
                         <div class="trend-metric">
                           <div class="trend-metric-title">堂食</div>
                           <div class="trend-metric-value">32%</div>
-                          <div class="trend-metric-sub"> 本周</div>
+                          <div class="trend-metric-sub">本周</div>
                         </div>
                         <div class="trend-metric">
                           <div class="trend-metric-title">烹饪</div>
                           <div class="trend-metric-value">14%</div>
-                          <div class="trend-metric-sub"> 本周</div>
+                          <div class="trend-metric-sub">本周</div>
                         </div>
                       </div>
                       <div class="trend-hero-footer">
@@ -106,17 +109,17 @@
                         <div class="trend-metric">
                           <div class="trend-metric-title">清淡</div>
                           <div class="trend-metric-value">38%</div>
-                          <div class="trend-metric-sub"> 本周</div>
+                          <div class="trend-metric-sub">本周</div>
                         </div>
                         <div class="trend-metric">
                           <div class="trend-metric-title">微辣</div>
                           <div class="trend-metric-value">28%</div>
-                          <div class="trend-metric-sub"> 本周</div>
+                          <div class="trend-metric-sub">本周</div>
                         </div>
                         <div class="trend-metric">
                           <div class="trend-metric-title">高蛋白</div>
                           <div class="trend-metric-value">22%</div>
-                          <div class="trend-metric-sub"> 本周</div>
+                          <div class="trend-metric-sub">本周</div>
                         </div>
                       </div>
                       <div class="trend-hero-footer">
@@ -124,7 +127,7 @@
                           <span class="dot dot-primary"></span> 轻食 3 次
                         </div>
                         <div class="trend-footer-item">
-                          <span class="dot dot-green"></span> 健康低脂 2 次
+                          <span class="dot dot-green"></span> 低脂 2 次
                         </div>
                         <div class="trend-footer-item">
                           <span class="dot dot-yellow"></span> 其他 2 次
@@ -143,17 +146,17 @@
                         <div class="trend-metric">
                           <div class="trend-metric-title">外卖</div>
                           <div class="trend-metric-value">¥280</div>
-                          <div class="trend-metric-sub"> 52%</div>
+                          <div class="trend-metric-sub">52%</div>
                         </div>
                         <div class="trend-metric">
                           <div class="trend-metric-title">堂食</div>
                           <div class="trend-metric-value">¥180</div>
-                          <div class="trend-metric-sub"> 33%</div>
+                          <div class="trend-metric-sub">33%</div>
                         </div>
                         <div class="trend-metric">
                           <div class="trend-metric-title">食材</div>
                           <div class="trend-metric-value">¥74</div>
-                          <div class="trend-metric-sub"> 15%</div>
+                          <div class="trend-metric-sub">15%</div>
                         </div>
                       </div>
                       <div class="trend-hero-footer">
@@ -229,44 +232,218 @@
               </div>
             </div>
 
-            <div class="history-panel" data-panel="summary" aria-hidden="true">
-              <div class="summary-stack">
-                <div class="summary-card">
-                  <div class="summary-title">AI 个性化总结</div>
-                  <p class="summary-body">
-                    本周你更偏好外卖与清爽口味，烹饪次数减少。高蛋白餐占比提升，晚餐时间略晚。
-                  </p>
-                  <ul class="summary-list">
-                    <li>外卖 7 次 · 堂食 4 次 · 烹饪 2 次</li>
-                    <li>轻食/清淡标签占比 38%</li>
-                    <li>高蛋白占比 22%，晚餐平均 19:05</li>
-                  </ul>
+            
+            <div class="history-panel summary-panel" data-panel="summary" aria-hidden="true">
+              <div class="summary-hero">
+                <div class="summary-hero-left">
+                  <span class="summary-chip">本周总结</span>
+                  <div class="summary-score-row">
+                    <div class="summary-score">82</div>
+                    <div class="summary-score-label">本周餐食评分 · 用餐 13 次 · 平均 19:05</div>
+                  </div>
+                  <div class="summary-hero-line">更爱暖胃重口 + 高蛋白，外卖次数下降</div>
+                  <div class="summary-hero-sub">高频时段：晚餐 19:05（较上周提前 10 分钟）</div>
                 </div>
-
-                <div class="summary-card">
-                  <div class="summary-title">AI 推荐与建议</div>
-                  <p class="summary-body">
-                    尝试将晚餐前置 20 分钟，外卖优先选择低油选项；堂食可多选蔬菜配菜，平衡本周脂肪摄入。
-                  </p>
-                  <ul class="summary-list">
-                    <li>推荐：轻食沙拉、番茄炖牛肉、烤鸡胸</li>
-                    <li>替换建议：甜饮改为气泡水 / 乌龙茶</li>
-                    <li>运动搭配：晚餐后 15 分钟轻量步行</li>
-                  </ul>
-                </div>
-
-                <div class="summary-card">
-                  <div class="summary-title">你的反馈</div>
-                  <p class="summary-body">告诉我你的感受，帮助下周更贴合你的口味。</p>
-                  <div class="summary-feedback">
-                    <textarea class="summary-textarea" rows="3" placeholder="例如：本周口味太淡，想多一些微辣；午餐想缩短时间…"></textarea>
-                    <button class="summary-submit" type="button">提交反馈</button>
+                <div class="summary-hero-chart" aria-label="餐食占比">
+                  <div class="summary-donut">
+                    <div class="summary-donut-center">
+                      <div class="summary-donut-value">54%</div>
+                      <div class="summary-donut-label">盖浇饭</div>
+                    </div>
+                  </div>
+                  <div class="summary-legend">
+                    <span class="legend-item"><span class="dot dot-primary"></span>盖浇饭 54%</span>
+                    <span class="legend-item"><span class="dot dot-green"></span>轻食沙拉 32%</span>
+                    <span class="legend-item"><span class="dot dot-yellow"></span>暖锅/炖菜 14%</span>
+                    <span class="legend-item"><span class="dot dot-neutral"></span>其他 10%</span>
                   </div>
                 </div>
               </div>
+
+              <div class="summary-card summary-quick-card">
+                <div class="summary-quick-tags">
+                  <span class="summary-pill"><i class="ri-star-smile-fill"></i> 最常吃：盖浇饭</span>
+                  <span class="summary-pill"><i class="ri-wallet-3-fill"></i> 预算：¥420</span>
+                  <span class="summary-pill"><i class="ri-takeaway-fill"></i> 外卖：4 次</span>
+                  <span class="summary-pill"><i class="ri-time-line"></i> 高峰：19:00-20:00</span>
+                </div>
+              </div>
+
+              <section class="summary-section summary-card">
+                <div class="summary-section-title">本周亮点</div>
+                <div class="summary-highlight-grid">
+                  <div class="summary-highlight-card">
+                    <div class="summary-highlight-title">更健康</div>
+                    <div class="summary-highlight-sub">高蛋白 + 低油组合，蔬菜占比 38%</div>
+                  </div>
+                  <div class="summary-highlight-card">
+                    <div class="summary-highlight-title">更准点</div>
+                    <div class="summary-highlight-sub">晚餐平均提前 10 分钟，夜宵次数下降</div>
+                  </div>
+                  <div class="summary-highlight-card">
+                    <div class="summary-highlight-title">少外卖</div>
+                    <div class="summary-highlight-sub">外卖 4 次，较上周 -2</div>
+                  </div>
+                  <div class="summary-highlight-card">
+                    <div class="summary-highlight-title">心情轻松</div>
+                    <div class="summary-highlight-sub">满足感提升，未出现暴食记录</div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="summary-section summary-card">
+                <div class="summary-section-title">深度洞察</div>
+                <div class="summary-insight-card">
+                  <div class="bar-row">
+                    <span>时间分布</span>
+                    <div class="bar-track"><div class="bar-fill" style="--bar-w:72%;"></div></div>
+                    <span class="bar-label">晚餐 72%</span>
+                  </div>
+                  <div class="bar-row">
+                    <span>偏好 TOP3</span>
+                    <div class="bar-track"><div class="bar-fill bar-green" style="--bar-w:60%;"></div></div>
+                    <span class="bar-label">盖浇饭 / 清汤面 / 暖锅</span>
+                  </div>
+                  <div class="bar-row">
+                    <span>标签热度</span>
+                    <div class="bar-track"><div class="bar-fill bar-yellow" style="--bar-w:38%;"></div></div>
+                    <span class="bar-label">清淡 38%</span>
+                  </div>
+                  <div class="bar-row">
+                    <span>预算趋势</span>
+                    <div class="bar-track"><div class="bar-fill" style="--bar-w:44%;"></div></div>
+                    <span class="bar-label">¥420 ↘ ¥480</span>
+                  </div>
+                  <div class="summary-tag-row">
+                    <span class="summary-tag-pill">高蛋白</span>
+                    <span class="summary-tag-pill">少油</span>
+                    <span class="summary-tag-pill">暖胃</span>
+                    <span class="summary-tag-pill">19:00-20:00</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="summary-section summary-card">
+                <div class="summary-section-title">AI 建议</div>
+                <div class="summary-steps">
+                  <div class="summary-step">
+                    <div class="summary-step-icon icon-green">1</div>
+                    <div>
+                      <div class="summary-step-title">早点规划晚餐</div>
+                      <div class="summary-body">提前 20 分钟准备，优先低油快手菜，减少夜宵触发。</div>
+                    </div>
+                  </div>
+                  <div class="summary-step">
+                    <div class="summary-step-icon icon-blue">2</div>
+                    <div>
+                      <div class="summary-step-title">替换炸物</div>
+                      <div class="summary-body">午餐尝试清汤面/拌饭，晚餐少油少盐，甜品改鲜果。</div>
+                    </div>
+                  </div>
+                  <div class="summary-step">
+                    <div class="summary-step-icon icon-purple">3</div>
+                    <div>
+                      <div class="summary-step-title">饭后走一走</div>
+                      <div class="summary-body">饭后 15 分钟步行 20 分钟，周末增加 30 分钟中等强度。</div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="summary-section summary-card">
+                <div class="summary-section-title">下周目标</div>
+                <div class="summary-goals">
+                  <div class="summary-goal-row">
+                    <div>
+                      <div class="summary-goal-label">每天 ≥1 份蔬菜</div>
+                      <div class="summary-goal-sub">午/晚各加一份绿叶或根茎</div>
+                    </div>
+                    <div class="summary-goal-dots">
+                      <span class="summary-goal-dot done"></span>
+                      <span class="summary-goal-dot done"></span>
+                      <span class="summary-goal-dot"></span>
+                    </div>
+                  </div>
+                  <div class="summary-goal-row">
+                    <div>
+                      <div class="summary-goal-label">外卖 ≤ 3 次</div>
+                      <div class="summary-goal-sub">居家提前备菜，夜宵只喝温水</div>
+                    </div>
+                    <div class="summary-goal-dots">
+                      <span class="summary-goal-dot done"></span>
+                      <span class="summary-goal-dot"></span>
+                      <span class="summary-goal-dot"></span>
+                    </div>
+                  </div>
+                  <div class="summary-goal-row">
+                    <div>
+                      <div class="summary-goal-label">睡前不吃甜</div>
+                      <div class="summary-goal-sub">用无糖茶替代甜品，晚饭后不加糖饮</div>
+                    </div>
+                    <div class="summary-goal-dots">
+                      <span class="summary-goal-dot done"></span>
+                      <span class="summary-goal-dot done"></span>
+                      <span class="summary-goal-dot done"></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
+
           </section>
         </main>
+
+        <div class="sheet-overlay" id="feedback-sheet-overlay" aria-hidden="true">
+          <div class="feedback-sheet" id="feedback-sheet" role="dialog" aria-modal="true" aria-labelledby="feedback-sheet-title">
+            <div class="detail-bar"></div>
+            <div class="feedback-sheet-head">
+              <div class="feedback-sheet-title" id="feedback-sheet-title">快速反馈</div>
+              <p class="feedback-sheet-sub">告诉我这顿饭的感受，我会优化之后的推荐</p>
+            </div>
+            <div class="feedback-option-list">
+              <button class="feedback-option" type="button" data-feedback-option="like">
+                <span class="option-icon positive" aria-hidden="true"><i class="ri-thumb-up-fill"></i></span>
+                <span class="option-copy">
+                  <span class="option-title">很满意，下次继续</span>
+                  <span class="option-sub">标记为优先推荐</span>
+                </span>
+                <i class="ri-arrow-right-s-line option-chevron" aria-hidden="true"></i>
+              </button>
+              <button class="feedback-option" type="button" data-feedback-option="switch">
+                <span class="option-icon neutral" aria-hidden="true"><i class="ri-repeat-fill"></i></span>
+                <span class="option-copy">
+                  <span class="option-title">想换个口味</span>
+                  <span class="option-sub">减少同类推荐</span>
+                </span>
+                <i class="ri-arrow-right-s-line option-chevron" aria-hidden="true"></i>
+              </button>
+              <button class="feedback-option" type="button" data-feedback-option="too-heavy">
+                <span class="option-icon warm" aria-hidden="true"><i class="ri-fire-fill"></i></span>
+                <span class="option-copy">
+                  <span class="option-title">太咸 / 太辣 / 太油</span>
+                  <span class="option-sub">偏清淡一点</span>
+                </span>
+                <i class="ri-arrow-right-s-line option-chevron" aria-hidden="true"></i>
+              </button>
+              <button class="feedback-option" type="button" data-feedback-option="portion">
+                <span class="option-icon calm" aria-hidden="true"><i class="ri-scales-2-fill"></i></span>
+                <span class="option-copy">
+                  <span class="option-title">分量偏少</span>
+                  <span class="option-sub">加大份或多加配菜</span>
+                </span>
+                <i class="ri-arrow-right-s-line option-chevron" aria-hidden="true"></i>
+              </button>
+              <button class="feedback-option" type="button" data-feedback-option="hide">
+                <span class="option-icon danger" aria-hidden="true"><i class="ri-forbid-2-fill"></i></span>
+                <span class="option-copy">
+                  <span class="option-title">不想再看到这个</span>
+                  <span class="option-sub">屏蔽这家店 / 菜品</span>
+                </span>
+                <i class="ri-arrow-right-s-line option-chevron" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
 
         <nav class="bottom-nav" aria-label="底部导航">
           <div class="glass-nav-group">

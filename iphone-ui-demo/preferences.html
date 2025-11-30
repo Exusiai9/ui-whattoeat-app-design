@@ -25,23 +25,102 @@
       </div>
 
       <div class="phone-inner">
-        <header class="top-app-bar">
-          <div class="brand">
-            <div class="brand-mark" aria-hidden="true">
-              <i class="ri-restaurant-fill"></i>
-            </div>
-            <div class="brand-name page-title">blurrr eat</div>
+        <header class="top-app-bar pref-app-bar">
+          <button class="pref-back-btn" type="button" data-target-page="profile.html" aria-label="返回">
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+          <div class="pref-title-block" aria-live="polite">
+            <div class="pref-title">偏好设置</div>
           </div>
-          <div class="context-status">
-            <div class="context-main body-text">偏好设置</div>
-            <div class="context-sub body-secondary">菜系、口味、预算</div>
-          </div>
+          <div class="pref-placeholder" aria-hidden="true"></div>
         </header>
 
-        <main class="phone-content">
-          <section class="card placeholder-card">
-            <div class="card-title">偏好设置（占位）</div>
-            <p class="body-secondary">未来在这里细化菜系、口味、忌口、预算等偏好。</p>
+        <main class="phone-content preferences-page">
+          <section class="card pref-hero-card">
+            <div class="pref-hero-head">
+              <div>
+                <div class="card-title">偏好设置</div>
+              </div>
+            </div>
+            <div class="pref-summary" id="pref-summary">
+              中餐、日料 · 清淡、微辣 · 聚会 · 忌花生 · 正常分量
+            </div>
+          </section>
+
+          <section class="card pref-panel">
+            <div class="pref-panel-head">
+              <div>
+                <div class="pref-panel-title body-text">标签偏好</div>
+              </div>
+            </div>
+
+            <div class="pref-scroll" role="list">
+              <div class="pref-group" role="group" aria-label="菜系">
+                <div class="pref-group-head">
+                  <span class="pref-group-title">菜系</span>
+                </div>
+                <div class="pref-chip-row">
+                  <button class="pref-chip" type="button" data-group="cuisine" data-value="chinese" data-label="中餐" aria-pressed="false">中餐</button>
+                  <button class="pref-chip" type="button" data-group="cuisine" data-value="japanese" data-label="日料" aria-pressed="false">日料</button>
+                  <button class="pref-chip" type="button" data-group="cuisine" data-value="cantonese" data-label="粤菜" aria-pressed="false">粤菜</button>
+                  <button class="pref-chip" type="button" data-group="cuisine" data-value="sichuan" data-label="川湘" aria-pressed="false">川湘</button>
+                  <button class="pref-chip" type="button" data-group="cuisine" data-value="western" data-label="西式" aria-pressed="false">西式</button>
+                  <button class="pref-chip" type="button" data-group="cuisine" data-value="quick-bento" data-label="快手便当" aria-pressed="false">快手便当</button>
+                </div>
+              </div>
+
+              <div class="pref-group" role="group" aria-label="口味">
+                <div class="pref-group-head">
+                  <span class="pref-group-title">口味</span>
+                </div>
+                <div class="pref-chip-row">
+                  <button class="pref-chip" type="button" data-group="taste" data-value="light" data-label="清淡" aria-pressed="false">清淡</button>
+                  <button class="pref-chip" type="button" data-group="taste" data-value="spicy-mild" data-label="微辣" aria-pressed="false">微辣</button>
+                  <button class="pref-chip" type="button" data-group="taste" data-value="spicy-hot" data-label="重辣" aria-pressed="false">重辣</button>
+                  <button class="pref-chip" type="button" data-group="taste" data-value="sour-spicy" data-label="酸爽" aria-pressed="false">酸爽</button>
+                  <button class="pref-chip" type="button" data-group="taste" data-value="buttery" data-label="浓郁" aria-pressed="false">浓郁</button>
+                </div>
+              </div>
+
+              <div class="pref-group" role="group" aria-label="场景">
+                <div class="pref-group-head">
+                  <span class="pref-group-title">场景</span>
+                </div>
+                <div class="pref-chip-row">
+                  <button class="pref-chip" type="button" data-group="scene" data-value="solo" data-label="独自" aria-pressed="false">独自</button>
+                  <button class="pref-chip" type="button" data-group="scene" data-value="date" data-label="约会" aria-pressed="false">约会</button>
+                  <button class="pref-chip" type="button" data-group="scene" data-value="group" data-label="聚会/团建" aria-pressed="false">聚会/团建</button>
+                  <button class="pref-chip" type="button" data-group="scene" data-value="late-night" data-label="宵夜" aria-pressed="false">宵夜</button>
+                  <button class="pref-chip" type="button" data-group="scene" data-value="quick-lunch" data-label="工作午餐" aria-pressed="false">工作午餐</button>
+                </div>
+              </div>
+
+              <div class="pref-group" role="group" aria-label="忌口">
+                <div class="pref-group-head">
+                  <span class="pref-group-title">忌口</span>
+                </div>
+                <div class="pref-chip-row">
+                  <button class="pref-chip" type="button" data-group="taboos" data-value="peanut-allergy" data-label="花生过敏" aria-pressed="false">花生过敏</button>
+                  <button class="pref-chip" type="button" data-group="taboos" data-value="no-cilantro" data-label="不吃香菜" aria-pressed="false">不吃香菜</button>
+                  <button class="pref-chip" type="button" data-group="taboos" data-value="no-seafood" data-label="避开海鲜" aria-pressed="false">避开海鲜</button>
+                  <button class="pref-chip" type="button" data-group="taboos" data-value="low-oil" data-label="低油少盐" aria-pressed="false">低油少盐</button>
+                  <button class="pref-chip" type="button" data-group="taboos" data-value="no-spicy" data-label="不吃辣" aria-pressed="false">不吃辣</button>
+                </div>
+              </div>
+
+              <div class="pref-group" role="group" aria-label="分量">
+                <div class="pref-group-head">
+                  <span class="pref-group-title">分量</span>
+                </div>
+                <div class="pref-chip-row">
+                  <button class="pref-chip" type="button" data-group="portion" data-value="small" data-label="小份" aria-pressed="false">小份</button>
+                  <button class="pref-chip" type="button" data-group="portion" data-value="normal" data-label="正常" aria-pressed="false">正常</button>
+                  <button class="pref-chip" type="button" data-group="portion" data-value="double" data-label="加倍" aria-pressed="false">加倍</button>
+                  <button class="pref-chip" type="button" data-group="portion" data-value="protein-plus" data-label="多蛋白" aria-pressed="false">多蛋白</button>
+                  <button class="pref-chip" type="button" data-group="portion" data-value="light-meal" data-label="低碳轻食" aria-pressed="false">低碳轻食</button>
+                </div>
+              </div>
+            </div>
           </section>
         </main>
 
