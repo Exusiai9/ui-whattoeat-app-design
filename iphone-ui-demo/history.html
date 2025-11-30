@@ -2,14 +2,15 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Blurrr Eat · 历史</title>
+  <title>好好吃饭 · 历史</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../typography.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="history">
   <div class="page">
     <div class="phone">
-      <div class="notch"></div>
       <div class="status-bar" aria-hidden="true">
         <div class="status-time">9:41</div>
         <div class="status-right">
@@ -24,21 +25,246 @@
       </div>
 
       <div class="phone-inner">
-        <header class="top-app-bar">
-          <div class="brand">
-            <div class="brand-mark" aria-hidden="true">🍜</div>
-            <div class="brand-name page-title">历史</div>
-          </div>
-          <div class="context-status">
-            <div class="context-main body-text">最近的选择</div>
-            <div class="context-sub body-secondary">你的过往记录</div>
-          </div>
-        </header>
-
         <main class="phone-content">
-          <section class="card">
-            <div class="card-title">历史页面（占位）</div>
-            <p class="body-secondary">你的历史推荐与选择会显示在这里。</p>
+          <section class="history-tabs">
+            <button class="history-tab active" data-tab="records">历史记录</button>
+            <button class="history-tab" data-tab="trend">周趋势</button>
+            <button class="history-tab" data-tab="summary">周总结</button>
+          </section>
+
+          <section class="history-content">
+            <div class="history-panel" data-panel="records" aria-hidden="false">
+              <div class="history-calendar" id="history-calendar">
+                <div class="history-week-label" id="history-week-label">2月 第2周</div>
+                <div class="history-date">
+                  <div class="history-day" id="history-day-number">11</div>
+                  <div class="history-month-year">
+                    <div class="history-month" id="history-month">FEBRUARY</div>
+                    <div class="history-year" id="history-year">2025</div>
+                  </div>
+                  <div class="history-weekday" id="history-weekday">Tue</div>
+                </div>
+
+                <div class="history-week-row">
+                  <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                </div>
+                <div class="history-days" id="history-days"></div>
+              </div>
+
+              <div class="history-meal-list" id="history-meal-list"></div>
+            </div>
+
+            <div class="history-panel" data-panel="trend" aria-hidden="true">
+              <div class="trend-scroll">
+                <div class="trend-hero-carousel" id="trend-hero-carousel">
+                  <div class="trend-hero-track" id="trend-hero-track">
+                    <div class="trend-card trend-card--hero" data-hero-index="0">
+                      <div class="trend-hero-ring">
+                        <div class="trend-hero-inner">
+                          <div class="trend-hero-center">54%</div>
+                          <div class="trend-hero-sub">下单方式</div>
+                        </div>
+                      </div>
+                      <div class="trend-hero-metrics">
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">外卖</div>
+                          <div class="trend-metric-value">54%</div>
+                          <div class="trend-metric-sub"> 本周</div>
+                        </div>
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">堂食</div>
+                          <div class="trend-metric-value">32%</div>
+                          <div class="trend-metric-sub"> 本周</div>
+                        </div>
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">烹饪</div>
+                          <div class="trend-metric-value">14%</div>
+                          <div class="trend-metric-sub"> 本周</div>
+                        </div>
+                      </div>
+                      <div class="trend-hero-footer">
+                        <div class="trend-footer-item">
+                          <span class="dot dot-primary"></span> 外卖 7 次
+                        </div>
+                        <div class="trend-footer-item">
+                          <span class="dot dot-green"></span> 堂食 4 次
+                        </div>
+                        <div class="trend-footer-item">
+                          <span class="dot dot-yellow"></span> 烹饪 2 次
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="trend-card trend-card--hero" data-hero-index="1">
+                      <div class="trend-hero-ring ring-alt">
+                        <div class="trend-hero-inner">
+                          <div class="trend-hero-center">68%</div>
+                          <div class="trend-hero-sub">口味属性</div>
+                        </div>
+                      </div>
+                      <div class="trend-hero-metrics">
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">清淡</div>
+                          <div class="trend-metric-value">38%</div>
+                          <div class="trend-metric-sub"> 本周</div>
+                        </div>
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">微辣</div>
+                          <div class="trend-metric-value">28%</div>
+                          <div class="trend-metric-sub"> 本周</div>
+                        </div>
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">高蛋白</div>
+                          <div class="trend-metric-value">22%</div>
+                          <div class="trend-metric-sub"> 本周</div>
+                        </div>
+                      </div>
+                      <div class="trend-hero-footer">
+                        <div class="trend-footer-item">
+                          <span class="dot dot-primary"></span> 轻食 3 次
+                        </div>
+                        <div class="trend-footer-item">
+                          <span class="dot dot-green"></span> 健康低脂 2 次
+                        </div>
+                        <div class="trend-footer-item">
+                          <span class="dot dot-yellow"></span> 其他 2 次
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="trend-card trend-card--hero" data-hero-index="2">
+                      <div class="trend-hero-ring ring-alt2">
+                        <div class="trend-hero-inner">
+                          <div class="trend-hero-center">73%</div>
+                          <div class="trend-hero-sub">本周开销</div>
+                        </div>
+                      </div>
+                      <div class="trend-hero-metrics">
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">外卖</div>
+                          <div class="trend-metric-value">¥280</div>
+                          <div class="trend-metric-sub"> 52%</div>
+                        </div>
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">堂食</div>
+                          <div class="trend-metric-value">¥180</div>
+                          <div class="trend-metric-sub"> 33%</div>
+                        </div>
+                        <div class="trend-metric">
+                          <div class="trend-metric-title">食材</div>
+                          <div class="trend-metric-value">¥74</div>
+                          <div class="trend-metric-sub"> 15%</div>
+                        </div>
+                      </div>
+                      <div class="trend-hero-footer">
+                        <div class="trend-footer-item">
+                          <span class="dot dot-primary"></span> 外卖单均 ¥40
+                        </div>
+                        <div class="trend-footer-item">
+                          <span class="dot dot-green"></span> 堂食单均 ¥60
+                        </div>
+                        <div class="trend-footer-item">
+                          <span class="dot dot-yellow"></span> 烹饪单均 ¥25
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="trend-dots" id="trend-hero-dots">
+                    <button class="trend-dot active" data-hero-target="0"></button>
+                    <button class="trend-dot" data-hero-target="1"></button>
+                    <button class="trend-dot" data-hero-target="2"></button>
+                  </div>
+                </div>
+
+                <div class="trend-card">
+                  <div class="trend-card-head">
+                    <div>
+                      <div class="trend-card-title">每周目标</div>
+                      <div class="trend-card-sub">最近 7 天</div>
+                    </div>
+                  </div>
+                  <div class="trend-week-goal">
+                    <div class="trend-goal-score">
+                      <div class="goal-number">3/7</div>
+                      <div class="goal-label">已达成</div>
+                    </div>
+                    <div class="trend-week-dots">
+                      <span class="goal-dot done">M</span>
+                      <span class="goal-dot done">T</span>
+                      <span class="goal-dot">W</span>
+                      <span class="goal-dot">T</span>
+                      <span class="goal-dot">F</span>
+                      <span class="goal-dot done">S</span>
+                      <span class="goal-dot">S</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="trend-card">
+                  <div class="trend-card-head">
+                    <div>
+                      <div class="trend-card-title">用餐标签趋势</div>
+                      <div class="trend-card-sub">本周标签偏好</div>
+                    </div>
+                  </div>
+                  <div class="tag-wheel">
+                    <div class="tag-petal outer petal-primary" style="--rot:0deg"></div>
+                    <div class="tag-petal outer petal-green" style="--rot:45deg"></div>
+                    <div class="tag-petal outer petal-yellow" style="--rot:90deg"></div>
+                    <div class="tag-petal outer petal-primary" style="--rot:135deg"></div>
+                    <div class="tag-petal outer petal-green" style="--rot:180deg"></div>
+                    <div class="tag-petal outer petal-yellow" style="--rot:225deg"></div>
+                    <div class="tag-petal outer petal-primary" style="--rot:270deg"></div>
+                    <div class="tag-petal outer petal-green" style="--rot:315deg"></div>
+                    <div class="tag-petal inner petal-primary soft" style="--rot:22.5deg"></div>
+                    <div class="tag-petal inner petal-green soft" style="--rot:67.5deg"></div>
+                    <div class="tag-petal inner petal-yellow soft" style="--rot:112.5deg"></div>
+                    <div class="tag-petal inner petal-primary soft" style="--rot:157.5deg"></div>
+                    <div class="tag-petal inner petal-green soft" style="--rot:202.5deg"></div>
+                    <div class="tag-petal inner petal-yellow soft" style="--rot:247.5deg"></div>
+                    <div class="tag-petal inner petal-primary soft" style="--rot:292.5deg"></div>
+                    <div class="tag-petal inner petal-green soft" style="--rot:337.5deg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="history-panel" data-panel="summary" aria-hidden="true">
+              <div class="summary-stack">
+                <div class="summary-card">
+                  <div class="summary-title">AI 个性化总结</div>
+                  <p class="summary-body">
+                    本周你更偏好外卖与清爽口味，烹饪次数减少。高蛋白餐占比提升，晚餐时间略晚。
+                  </p>
+                  <ul class="summary-list">
+                    <li>外卖 7 次 · 堂食 4 次 · 烹饪 2 次</li>
+                    <li>轻食/清淡标签占比 38%</li>
+                    <li>高蛋白占比 22%，晚餐平均 19:05</li>
+                  </ul>
+                </div>
+
+                <div class="summary-card">
+                  <div class="summary-title">AI 推荐与建议</div>
+                  <p class="summary-body">
+                    尝试将晚餐前置 20 分钟，外卖优先选择低油选项；堂食可多选蔬菜配菜，平衡本周脂肪摄入。
+                  </p>
+                  <ul class="summary-list">
+                    <li>推荐：轻食沙拉、番茄炖牛肉、烤鸡胸</li>
+                    <li>替换建议：甜饮改为气泡水 / 乌龙茶</li>
+                    <li>运动搭配：晚餐后 15 分钟轻量步行</li>
+                  </ul>
+                </div>
+
+                <div class="summary-card">
+                  <div class="summary-title">你的反馈</div>
+                  <p class="summary-body">告诉我你的感受，帮助下周更贴合你的口味。</p>
+                  <div class="summary-feedback">
+                    <textarea class="summary-textarea" rows="3" placeholder="例如：本周口味太淡，想多一些微辣；午餐想缩短时间…"></textarea>
+                    <button class="summary-submit" type="button">提交反馈</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </main>
 
@@ -46,19 +272,19 @@
           <div class="glass-nav-group">
             <input type="radio" name="bottom-nav" id="nav-history" checked />
             <label for="nav-history" data-target="history.html">
-              <span class="nav-icon">🕓</span>
+              <span class="nav-icon"><i class="ri-time-line"></i></span>
               <span class="nav-label">历史</span>
             </label>
 
             <input type="radio" name="bottom-nav" id="nav-home" />
             <label for="nav-home" data-target="index.html">
-              <span class="nav-icon">🏠</span>
+              <span class="nav-icon"><i class="ri-home-5-fill"></i></span>
               <span class="nav-label">首页</span>
             </label>
 
             <input type="radio" name="bottom-nav" id="nav-profile" />
             <label for="nav-profile" data-target="profile.html">
-              <span class="nav-icon">👤</span>
+              <span class="nav-icon"><i class="ri-user-3-fill"></i></span>
               <span class="nav-label">我的</span>
             </label>
 

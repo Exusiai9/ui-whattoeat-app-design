@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <title>Blurrr Eat · 我的</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../typography.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-page="profile">
   <div class="page">
     <div class="phone">
-      <div class="notch"></div>
       <div class="status-bar" aria-hidden="true">
         <div class="status-time">9:41</div>
         <div class="status-right">
@@ -26,19 +27,97 @@
       <div class="phone-inner">
         <header class="top-app-bar">
           <div class="brand">
-            <div class="brand-mark" aria-hidden="true">🍜</div>
-            <div class="brand-name page-title">我的</div>
+            <div class="brand-mark" aria-hidden="true">
+              <i class="ri-restaurant-fill"></i>
+            </div>
+            <div class="brand-name page-title">blurrr eat</div>
           </div>
           <div class="context-status">
-            <div class="context-main body-text">你的账户</div>
-            <div class="context-sub body-secondary">偏好与设置</div>
+            <div class="context-main body-text">我的 · 档案</div>
+            <div class="context-sub body-secondary">个人信息与偏好</div>
           </div>
         </header>
 
         <main class="phone-content">
-          <section class="card">
-            <div class="card-title">个人页面（占位）</div>
-            <p class="body-secondary">你的信息、收藏与设置会显示在这里。</p>
+          <section class="profile-top card">
+            <div class="profile-top-row">
+              <div class="profile-avatar">
+                <img src="https://i.imgur.com/tB2j8wK.png" alt="头像" />
+              </div>
+              <div class="profile-name-block">
+                <div class="profile-name">Taigo</div>
+                <div class="profile-sub">饮食档案</div>
+              </div>
+              <button class="profile-edit" aria-label="编辑档案"><i class="ri-edit-2-line"></i></button>
+            </div>
+            <div class="profile-stats">
+              <div class="profile-stat">
+                <div class="stat-number">62</div>
+                <div class="stat-label">本月偏好</div>
+              </div>
+              <div class="profile-stat">
+                <div class="stat-number">135</div>
+                <div class="stat-label">助手记录</div>
+              </div>
+              <div class="profile-stat">
+                <div class="stat-number">24</div>
+                <div class="stat-label">提醒次数</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="profile-quick card">
+            <div class="quick-row">
+              <div class="quick-item" data-target-page="favorites.html" role="button" tabindex="0">
+                <div class="quick-icon icon-fav"><i class="ri-heart-3-fill"></i></div>
+                <div class="quick-text">
+                  <div class="quick-title">收藏夹</div>
+                </div>
+              </div>
+              <div class="quick-item" data-target-page="history.html" role="button" tabindex="0">
+                <div class="quick-icon icon-history"><i class="ri-time-line"></i></div>
+                <div class="quick-text">
+                  <div class="quick-title">历史浏览</div>
+                </div>
+              </div>
+              <div class="quick-item" data-target-page="booking.html" role="button" tabindex="0">
+                <div class="quick-icon icon-booking"><i class="ri-calendar-check-fill"></i></div>
+                <div class="quick-text">
+                  <div class="quick-title">预约</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="profile-menu card">
+            <div class="menu-item" data-target-page="preferences.html" role="button" tabindex="0">
+              <div class="menu-icon icon-preference"><i class="ri-settings-5-fill"></i></div>
+              <div class="menu-text">
+                <div class="menu-title">偏好设置</div>
+              </div>
+              <span class="menu-arrow"><i class="ri-arrow-right-s-line"></i></span>
+            </div>
+            <div class="menu-item" data-target-page="assistant-settings.html" role="button" tabindex="0">
+              <div class="menu-icon icon-assistant"><i class="ri-robot-2-fill"></i></div>
+              <div class="menu-text">
+                <div class="menu-title">助手性格设置</div>
+              </div>
+              <span class="menu-arrow"><i class="ri-arrow-right-s-line"></i></span>
+            </div>
+            <div class="menu-item" data-target-page="notifications.html" role="button" tabindex="0">
+              <div class="menu-icon icon-bell"><i class="ri-notification-3-fill"></i></div>
+              <div class="menu-text">
+                <div class="menu-title">通知与提醒</div>
+              </div>
+              <span class="menu-arrow"><i class="ri-arrow-right-s-line"></i></span>
+            </div>
+            <div class="menu-item" data-target-page="feedback.html" role="button" tabindex="0">
+              <div class="menu-icon icon-help"><i class="ri-question-answer-fill"></i></div>
+              <div class="menu-text">
+                <div class="menu-title">反馈与帮助</div>
+              </div>
+              <span class="menu-arrow"><i class="ri-arrow-right-s-line"></i></span>
+            </div>
           </section>
         </main>
 
@@ -46,19 +125,19 @@
           <div class="glass-nav-group">
             <input type="radio" name="bottom-nav" id="nav-history" />
             <label for="nav-history" data-target="history.html">
-              <span class="nav-icon">🕓</span>
+              <span class="nav-icon"><i class="ri-time-line"></i></span>
               <span class="nav-label">历史</span>
             </label>
 
             <input type="radio" name="bottom-nav" id="nav-home" />
             <label for="nav-home" data-target="index.html">
-              <span class="nav-icon">🏠</span>
+              <span class="nav-icon"><i class="ri-home-5-fill"></i></span>
               <span class="nav-label">首页</span>
             </label>
 
             <input type="radio" name="bottom-nav" id="nav-profile" checked />
             <label for="nav-profile" data-target="profile.html">
-              <span class="nav-icon">👤</span>
+              <span class="nav-icon"><i class="ri-user-3-fill"></i></span>
               <span class="nav-label">我的</span>
             </label>
 

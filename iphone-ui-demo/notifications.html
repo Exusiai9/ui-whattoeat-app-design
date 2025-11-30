@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blurrr Eat · 通知与提醒</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../typography.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="notifications">
+  <div class="page">
+    <div class="phone">
+      <div class="status-bar" aria-hidden="true">
+        <div class="status-time">9:41</div>
+        <div class="status-right">
+          <div class="status-signal">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="status-wifi"></div>
+          <div class="status-battery">
+            <div class="status-battery-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-inner">
+        <header class="top-app-bar">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <i class="ri-restaurant-fill"></i>
+            </div>
+            <div class="brand-name page-title">blurrr eat</div>
+          </div>
+          <div class="context-status">
+            <div class="context-main body-text">通知与提醒</div>
+            <div class="context-sub body-secondary">推送时间与提醒策略</div>
+          </div>
+        </header>
+
+        <main class="phone-content">
+          <section class="card placeholder-card">
+            <div class="card-title">通知与提醒（占位）</div>
+            <p class="body-secondary">配置推送时间、提醒策略等内容将在这里呈现。</p>
+          </section>
+        </main>
+
+        <nav class="bottom-nav" aria-label="底部导航">
+          <div class="glass-nav-group">
+            <input type="radio" name="bottom-nav" id="nav-history" />
+            <label for="nav-history" data-target="history.html">
+              <span class="nav-icon"><i class="ri-time-line"></i></span>
+              <span class="nav-label">历史</span>
+            </label>
+
+            <input type="radio" name="bottom-nav" id="nav-home" />
+            <label for="nav-home" data-target="index.html">
+              <span class="nav-icon"><i class="ri-home-5-fill"></i></span>
+              <span class="nav-label">首页</span>
+            </label>
+
+            <input type="radio" name="bottom-nav" id="nav-profile" checked />
+            <label for="nav-profile" data-target="profile.html">
+              <span class="nav-icon"><i class="ri-user-3-fill"></i></span>
+              <span class="nav-label">我的</span>
+            </label>
+
+            <div class="glass-nav-glider"></div>
+          </div>
+        </nav>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

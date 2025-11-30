@@ -1,0 +1,141 @@
+/* Font family & base */
+:root {
+  --font-family-base: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", system-ui, sans-serif;
+
+  /* Line height tokens */
+  --lh-tight: 1.3;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.5;
+
+  /* Font size tokens */
+  --text-display-size: 24px;
+  --text-heading-xl-size: 20px;
+  --text-heading-lg-size: 18px;
+  --text-heading-md-size: 16px;
+  --text-body-lg-size: 15px;
+  --text-body-size: 14px;
+  --text-body-sm-size: 13px;
+  --text-caption-size: 12px;
+  --text-label-size: 11px;
+
+  /* Font weight tokens */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Text color tokens */
+  --color-text-primary: #1f1f1f;
+  --color-text-secondary: #4a4a4a;
+  --color-text-disabled: rgba(31, 31, 31, 0.34);
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.72);
+  --color-text-on-accent: #0c0c0c;
+  --color-text-link: #2563eb;
+}
+
+/* Global base text */
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-primary);
+}
+
+.text-reset {
+  font: inherit;
+  color: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Text role utilities */
+.text-display {
+  font-family: var(--font-family-base);
+  font-size: var(--text-display-size);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--color-text-primary);
+}
+
+.text-heading-xl {
+  font-family: var(--font-family-base);
+  font-size: var(--text-heading-xl-size);
+  font-weight: var(--fw-bold);
+  line-height: 1.35;
+  color: var(--color-text-primary);
+}
+
+.text-heading-lg {
+  font-family: var(--font-family-base);
+  font-size: var(--text-heading-lg-size);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-normal);
+  color: var(--color-text-primary);
+}
+
+.text-heading-md {
+  font-family: var(--font-family-base);
+  font-size: var(--text-heading-md-size);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-normal);
+  color: var(--color-text-primary);
+}
+
+.text-body-lg {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-lg-size);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-primary);
+}
+
+.text-body {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-size);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-primary);
+}
+
+.text-body-sm {
+  font-family: var(--font-family-base);
+  font-size: var(--text-body-sm-size);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-primary);
+}
+
+.text-caption {
+  font-family: var(--font-family-base);
+  font-size: var(--text-caption-size);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--color-text-primary);
+}
+
+.text-label {
+  font-family: var(--font-family-base);
+  font-size: var(--text-label-size);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+/* Text color utilities */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-disabled { color: var(--color-text-disabled); }
+.text-inverse { color: var(--color-text-inverse); }
+.text-inverse-muted { color: var(--color-text-inverse-muted); }
+.text-on-accent { color: var(--color-text-on-accent); }
+.text-link { color: var(--color-text-link); }
+
+/* Alignment utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }

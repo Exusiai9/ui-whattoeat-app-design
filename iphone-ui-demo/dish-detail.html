@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blurrr Eat · 推荐详情</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../typography.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="dish-detail">
+  <div class="page">
+    <div class="phone">
+      <div class="status-bar" aria-hidden="true">
+        <div class="status-time">9:41</div>
+        <div class="status-right">
+          <div class="status-signal">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="status-wifi"></div>
+          <div class="status-battery">
+            <div class="status-battery-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-inner">
+        <main class="phone-content detail-page">
+          <section class="detail-hero">
+            <div class="detail-hero-top">
+              <button type="button" onclick="history.back()" aria-label="返回">
+                <i class="ri-arrow-left-line"></i>
+              </button>
+              <button type="button" aria-label="收藏">
+                <i class="ri-heart-line"></i>
+              </button>
+            </div>
+            <div class="detail-restaurant">新街口四季民福烤鸭店</div>
+            <h1 class="detail-title">北京烤鸭</h1>
+            <div class="detail-hero-img" style="background-image: url('https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+            <div class="detail-rating-row">
+              <div class="detail-chili">🌶️ 🌶️ 🌶️</div>
+              <span class="detail-rating"><i class="ri-star-s-fill"></i> 4.6</span>
+            </div>
+          </section>
+
+          <section class="detail-body-card">
+            <div class="detail-row">
+              <div class="detail-section-title">配料：</div>
+              <button class="text-link-btn" type="button">管理</button>
+            </div>
+            <div class="detail-tag-scroll">
+              <span class="detail-pill"><i class="ri-contrast-drop-2-line"></i> 烤鸭</span>
+              <span class="detail-pill"><i class="ri-carrot-fill"></i> 青瓜</span>
+              <span class="detail-pill"><i class="ri-plant-fill"></i> 面饼</span>
+            </div>
+
+            <p class="detail-desc">
+              经典京味烤鸭，外皮酥脆、肉质鲜嫩，搭配清爽青瓜、甜面酱与热腾腾的手工面饼，一口卷起油香与清新。片皮鸭现出炉即刻封锁肉汁，入口微甜带烟熏香。
+            </p>
+            <p class="detail-desc">
+              这道菜适合 2-3 人共享，既可以配热汤与小菜，也能单独作为主食。若偏爱低脂口感，可选择去皮或半脂片法，同时附赠新鲜生菜用于包裹，减轻油腻。
+            </p>
+            <p class="detail-desc">
+              我们建议先把面饼稍微摊开放凉，再抹少许甜面酱、铺上鸭肉与青瓜，卷起即可享用。若想要更丰富的层次，也可加点蒜泥、葱丝或泡菜，味道更加立体。
+            </p>
+            <p class="detail-desc">
+              下单备注可调整份量与辣度，例如不放葱、低盐或额外蔬菜，满足不同口味与健康需求。也可以搭配一杯乌梅汤或气泡水，平衡油脂、解腻又解辣。
+            </p>
+
+            <div class="detail-section-title">营养成分：</div>
+            <div class="detail-row">
+              <button class="detail-pill" type="button">每100克 ▼</button>
+              <span class="detail-pill">198 千卡</span>
+            </div>
+          </section>
+
+          <div class="detail-bottom-bar">
+            <div class="detail-bottom-inner">
+              <div class="detail-bottom-row">
+                <div class="qty-box">
+                  <button class="qty-btn" type="button" data-qty-btn="minus">-</button>
+                  <span class="qty-value" id="detail-qty">1</span>
+                  <button class="qty-btn" type="button" data-qty-btn="plus">+</button>
+                </div>
+                <button class="detail-cta" type="button"><i class="ri-shopping-cart-2-line"></i>加入购物车</button>
+                <span class="price-chip">¥12.8</span>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

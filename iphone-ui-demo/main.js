@@ -29,24 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const modeConfig = {
     healthy: {
       name: "要健康",
-      label: "要健康 · 清爽轻负担",
-      emoji: "🥗",
-      title: "想吃轻盈又有味道？",
-      subtitle: "多点蔬菜与均衡搭配。"
+      label: "要健康 · 更适合轻盈一点的搭配",
+      title: "今晚少油少盐也好吃。",
+      subtitle: "我会优先推荐更轻盈、低负担的选择。",
+      icon: "ri-leaf-fill"
     },
     together: {
-      name: "多人局",
-      label: "多人局 · 适合分享",
-      emoji: "🍲",
-      title: "挑一份大家都愿意的",
-      subtitle: "为整桌人做推荐。"
+      name: "一起吃",
+      label: "一起吃 · 适合多人局",
+      title: "大家一起吃，别谁都迁就。",
+      subtitle: "综合每个人口味，找一个都能接受的方案。",
+      icon: "ri-team-fill"
     },
     now: {
-      name: "马上吃",
-      label: "马上吃 · 快且省心",
-      emoji: "⚡",
-      title: "要快、要省事？",
-      subtitle: "简单快餐，等待更少。"
+      name: "这一顿",
+      label: "这一顿 · 随便吃吃就好",
+      title: "这顿别纠结，交给我选。",
+      subtitle: "随机一点、随便一点，也可以很好吃。",
+      icon: "ri-shuffle-fill"
     }
   };
 
@@ -55,6 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const greetingSubtitle = document.getElementById("greeting-subtitle");
   const modeLabel = document.getElementById("mode-label");
   const currentModeLabel = document.getElementById("current-mode-label");
+  const greetingIcon = greetingEmoji
+    ? greetingEmoji.querySelector("i")
+    : null;
 
   if (
     greetingEmoji &&
@@ -75,11 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
         dot.classList.toggle("active", dot.dataset.mode === mode);
       });
 
-      greetingEmoji.textContent = cfg.emoji;
       greetingTitle.textContent = cfg.title;
       greetingSubtitle.textContent = cfg.subtitle;
       modeLabel.textContent = cfg.label;
       currentModeLabel.textContent = `当前：${cfg.name}`;
+
+      if (greetingIcon) {
+        greetingIcon.className = cfg.icon;
+      }
     };
 
     document.querySelectorAll(".mode-card-item").forEach(card => {
@@ -118,11 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const maxPrice = 200;
   const selections = {
-    category: new Set(["中餐", "日料", "意面"]),
-    style: new Set(["清淡", "健康"]),
-    brand: new Set(["不辣", "中辣"]),
-    color: new Set(["花生过敏", "海鲜过敏"]),
-    size: new Set(["素食", "低脂"]),
+    category: new Set(["中餐", "日料", "轻食"]),
+    style: new Set(["清淡", "微辣"]),
+    brand: new Set(["多人局"]),
+    color: new Set(["花生过敏"]),
+    size: new Set(["正常"]),
     price: maxPrice
   };
 
@@ -160,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceHeadroom = Math.max(0, (maxPrice - selections.price) / 10);
     return Math.max(
       8,
-      Math.round(32 + priceHeadroom - Math.max(0, totalSelected - 13))
+      Math.round(32 + priceHeadroom - Math.max(0, totalSelected - 10))
     );
   };
 
@@ -195,10 +201,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     syncChips();
     updateResultsCount();
+    updatePreview();
   };
 
   if (modal && openBtn && closeBtn && applyBtn && priceRange && priceValue) {
-    // Init slider
     priceRange.value = selections.price;
     priceValue.textContent = `¥${selections.price}`;
 
@@ -223,12 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
       selections.price = value;
       priceValue.textContent = `¥${value}`;
       updateResultsCount();
+      updatePreview();
     });
 
     applyBtn.addEventListener("click", () => {
       updateResultsCount();
       updatePreview();
-      // This is where a real recommendation refresh would trigger.
       closeModal();
     });
   }
@@ -237,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const detailCopy = {
     assist: {
       title: "帮我选 · 次级界面",
-      desc: "基于你当前的口味、忌口和预算生成推荐清单。可直接查看推荐菜品或餐厅。"
+      desc: "基于当前的口味、忌口和预算生成推荐清单。可直接查看推荐菜品或餐厅。"
     },
     manual: {
       title: "自己选 · 次级界面",
@@ -245,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     random: {
       title: "随便来 · 次级界面",
-      desc: "为你抽取一张灵感卡，包含 3-5 个惊喜菜品/店铺，点击可立即下单或再抽一次。"
+      desc: "为你抽取一张灵感卡，包含 3-5 个惊喜店铺，想换就再抽一次。"
     }
   };
 
@@ -253,7 +259,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!detailOverlay || !detailSheet || !detailTitle || !detailDesc) return;
     const copy = detailCopy[action];
     detailTitle.textContent = copy ? copy.title : "推荐详情";
-    detailDesc.textContent = copy ? copy.desc : "点击上方任意功能，查看对应的次级界面内容。";
+    detailDesc.textContent = copy
+      ? copy.desc
+      : "点击上方任意功能，查看对应的次级界面内容。";
 
     if (assistMock) {
       const showAssist = action === "assist";
@@ -396,5 +404,233 @@ document.addEventListener("DOMContentLoaded", () => {
     ["mouseup", "mouseleave", "touchend", "touchcancel"].forEach(evt =>
       assistTrack.addEventListener(evt, onPointerUp)
     );
+  }
+
+  // Dish detail navigation from assist images
+  document.querySelectorAll(".assist-img").forEach(img => {
+    img.addEventListener("click", () => {
+      window.location.href = "dish-detail.html";
+    });
+  });
+
+  // Dish detail quantity
+  const qtyValue = document.getElementById("detail-qty");
+  const updateQty = delta => {
+    if (!qtyValue) return;
+    const current = Number(qtyValue.textContent) || 1;
+    const next = Math.max(1, current + delta);
+    qtyValue.textContent = next;
+  };
+  document.querySelectorAll("[data-qty-btn]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const type = btn.dataset.qtyBtn;
+      if (type === "plus") updateQty(1);
+      if (type === "minus") updateQty(-1);
+    });
+  });
+
+  // Profile page quick links & menu navigation
+  const attachNavigation = element => {
+    const target = element.dataset.targetPage;
+    if (!target) return;
+    const navigate = () => {
+      window.location.href = target;
+    };
+    element.addEventListener("click", navigate);
+    element.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        navigate();
+      }
+    });
+  };
+
+  document
+    .querySelectorAll("[data-target-page]")
+    .forEach(el => attachNavigation(el));
+
+  // History tabs, swipe weeks, and day selection
+  if (document.body.getAttribute("data-page") === "history") {
+    const tabs = Array.from(document.querySelectorAll(".history-tab"));
+    const panels = Array.from(document.querySelectorAll(".history-panel"));
+    const calendar = document.getElementById("history-calendar");
+    const weekLabelEl = document.getElementById("history-week-label");
+    const dayNumberEl = document.getElementById("history-day-number");
+    const monthEl = document.getElementById("history-month");
+    const yearEl = document.getElementById("history-year");
+    const weekdayEl = document.getElementById("history-weekday");
+    const dayContainer = document.getElementById("history-days");
+    const mealListEl = document.getElementById("history-meal-list");
+
+    const weekdayLabels = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+
+    const weeks = [
+      {
+        label: "2月 第2周",
+        day: 11,
+        month: "FEBRUARY",
+        year: "2025",
+        days: [8, 9, 10, 11, 12, 13, 14],
+        meals: {
+          11: [
+            { time: "12:30", meal: "午餐", name: "烤鸭卷饼", style: "低油少盐", service: "堂食" },
+            { time: "18:30", meal: "晚餐", name: "口水鸡", style: "微辣", service: "外卖" }
+          ],
+          10: [{ time: "12:10", meal: "午餐", name: "沙拉", style: "轻食", service: "烹饪" }],
+          9: [{ time: "08:30", meal: "早饭", name: "燕麦酸奶", style: "低脂", service: "烹饪" }]
+        }
+      },
+      {
+        label: "2月 第3周",
+        day: 18,
+        month: "FEBRUARY",
+        year: "2025",
+        days: [15, 16, 17, 18, 19, 20, 21],
+        meals: {
+          18: [{ time: "13:00", meal: "午餐", name: "番茄炖牛腩", style: "高蛋白", service: "堂食" }],
+          17: [{ time: "19:00", meal: "晚餐", name: "意面", style: "番茄肉酱", service: "外卖" }]
+        }
+      }
+    ];
+
+    let currentWeek = 0;
+    let selectedDay = weeks[0].day;
+
+    const renderMeals = () => {
+      if (!mealListEl) return;
+      const meals = weeks[currentWeek].meals[selectedDay] || [];
+      mealListEl.innerHTML =
+        meals.length === 0
+          ? '<div class="placeholder-text">当日暂无用餐记录</div>'
+          : meals
+              .map(
+                item =>
+                  `<div class="history-meal-card">
+                    <div class="history-meal-head">
+                      <div class="history-meal-info">
+                        <div class="history-meal-title">${item.time} · ${item.meal} · ${item.name}</div>
+                        <div class="history-meal-meta">${item.style || ""} · ${item.service || ""}</div>
+                      </div>
+                      <button class="history-feedback-btn" type="button">反馈</button>
+                    </div>
+                  </div>`
+              )
+              .join("");
+    };
+
+    const renderWeek = () => {
+      const wk = weeks[currentWeek];
+      if (!wk.days.includes(selectedDay)) {
+        selectedDay = wk.day;
+      }
+      if (weekLabelEl) weekLabelEl.textContent = wk.label;
+      if (dayNumberEl) {
+        dayNumberEl.textContent = selectedDay < 10 ? `0${selectedDay}` : selectedDay;
+      }
+      if (monthEl) monthEl.textContent = wk.month;
+      if (yearEl) yearEl.textContent = wk.year;
+      const dayIdx = wk.days.indexOf(selectedDay);
+      if (weekdayEl) {
+        weekdayEl.textContent = dayIdx >= 0 ? weekdayLabels[dayIdx] : "";
+      }
+      if (dayContainer) {
+        dayContainer.innerHTML = "";
+        wk.days.forEach((dayVal, idx) => {
+          const btn = document.createElement("button");
+          btn.className = "history-day-circle";
+          btn.dataset.day = String(dayVal);
+          btn.textContent = dayVal;
+          const count = (wk.meals[dayVal] || []).length;
+          if (count > 0) {
+            const alpha = Math.min(0.2 + count * 0.18, 0.85);
+            btn.style.background = `rgba(255, 107, 0, ${alpha})`;
+            btn.style.color = alpha > 0.45 ? "#ffffff" : "#0c0c0c";
+          }
+          if (dayVal === selectedDay) btn.classList.add("selected");
+          btn.addEventListener("click", () => {
+            selectedDay = dayVal;
+            const dayIndex = (idx % 7 + 7) % 7;
+            if (weekdayEl) weekdayEl.textContent = weekdayLabels[dayIndex];
+            renderWeek();
+            renderMeals();
+          });
+          dayContainer.appendChild(btn);
+        });
+      }
+      renderMeals();
+    };
+
+    const setTab = key => {
+      tabs.forEach(tab => {
+        const active = tab.dataset.tab === key;
+        tab.classList.toggle("active", active);
+      });
+      panels.forEach(panel => {
+        const show = panel.dataset.panel === key;
+        panel.setAttribute("aria-hidden", show ? "false" : "true");
+      });
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => setTab(tab.dataset.tab));
+    });
+
+    // Swipe to change weeks
+    if (calendar) {
+      let swipeStartX = 0;
+      let swiping = false;
+      const onSwipeStart = e => {
+        swiping = true;
+        swipeStartX = e.touches ? e.touches[0].clientX : e.clientX;
+      };
+      const onSwipeEnd = e => {
+        if (!swiping) return;
+        const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        const delta = endX - swipeStartX;
+        const threshold = 50;
+        if (delta > threshold && currentWeek > 0) {
+          currentWeek -= 1;
+          renderWeek();
+        } else if (delta < -threshold && currentWeek < weeks.length - 1) {
+          currentWeek += 1;
+          renderWeek();
+        }
+        swiping = false;
+      };
+      ["mousedown", "touchstart"].forEach(evt =>
+        calendar.addEventListener(evt, onSwipeStart, { passive: true })
+      );
+      ["mouseup", "touchend"].forEach(evt =>
+        calendar.addEventListener(evt, onSwipeEnd)
+      );
+    }
+
+    renderWeek();
+    renderMeals();
+
+    // Hero carousel dots
+    const heroTrack = document.getElementById("trend-hero-track");
+    const heroDots = Array.from(document.querySelectorAll("[data-hero-target]"));
+    const setHeroDot = idx => {
+      heroDots.forEach(dot => {
+        dot.classList.toggle("active", Number(dot.dataset.heroTarget) === idx);
+      });
+    };
+    if (heroTrack && heroDots.length) {
+      const scrollToIndex = idx => {
+        const width = heroTrack.clientWidth;
+        heroTrack.scrollTo({ left: width * idx, behavior: "smooth" });
+        setHeroDot(idx);
+      };
+      heroDots.forEach(dot => {
+        dot.addEventListener("click", () => scrollToIndex(Number(dot.dataset.heroTarget)));
+      });
+      heroTrack.addEventListener("scroll", () => {
+        const width = heroTrack.clientWidth || 1;
+        const idx = Math.round(heroTrack.scrollLeft / width);
+        setHeroDot(Math.max(0, Math.min(idx, heroDots.length - 1)));
+      });
+      setHeroDot(0);
+    }
   }
 });
